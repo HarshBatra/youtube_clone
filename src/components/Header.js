@@ -7,6 +7,7 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -22,9 +23,9 @@ const Header = () => {
           className="w-6 h-6 cursor-pointer"
           onClick={toggleMenuHandler}
         />
-        <a href="/">
+        <Link to="/">
           <img alt="logo" src="/assets/logo" className="w-24 cursor-pointer" />
-        </a>
+        </Link>
       </div>
       <div className="flex items-center">
         <input

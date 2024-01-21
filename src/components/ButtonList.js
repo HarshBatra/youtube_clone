@@ -15,7 +15,7 @@ const ButtonList = () => {
   return (
     <div className="flex m-4 gap-4">
       {btns.map((btn, index) => {
-        return <Button btnName={btn} />;
+        return <Button key={index} btnName={btn} />;
       })}
     </div>
   );

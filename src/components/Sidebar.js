@@ -18,15 +18,18 @@ import { GoReport } from "react-icons/go";
 import { MdOutlinedFlag } from "react-icons/md";
 import { MdHelpOutline } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return !isMenuOpen ? null : (
     <div className="p-4 w-1/6 flex flex-col gap-2">
-      <div className="rounded-lg p-2 hover:bg-gray-200 flex cursor-pointer">
-        <IoMdHome className="w-6 h-6 mr-6" /> Home
-      </div>
+      <Link to="/">
+        <div className="rounded-lg p-2 hover:bg-gray-200 flex cursor-pointer">
+          <IoMdHome className="w-6 h-6 mr-6" /> Home
+        </div>
+      </Link>
       <div className="rounded-lg p-2 hover:bg-gray-200 flex cursor-pointer">
         <SiYoutubeshorts className="w-6 h-6 mr-6" /> Shorts
       </div>
