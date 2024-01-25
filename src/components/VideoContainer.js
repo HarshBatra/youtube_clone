@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
 
+  useEffect(() => {
+    getVideos();
+  }, []);
+
   const getVideos = async () => {
     const res = await fetch(YOUTUBE_VIDEOS_API);
     const data = await res.json();
@@ -13,19 +17,14 @@ const VideoContainer = () => {
     setVideos(data?.items);
   };
 
-  useEffect(() => {
-    getVideos();
-  }, []);
-
   return (
     <div className="my-4 grid grid-flow-row grid-cols-3">
-      {videos?.map((video, index) => {
-        return (
-          <Link to={"/watch?v=" + video.id}>
-            <VideoCard key={video.id} info={video} />
+      {videos.length > 0 &&
+        videos?.map((video) => (
+          <Link key={video.etag} to={`/watch?v=${video.id}`}>
+            <VideoCard info={video}></VideoCard>
           </Link>
-        );
-      })}
+        ))}
     </div>
   );
 };

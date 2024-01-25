@@ -7,7 +7,6 @@ import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -23,14 +22,14 @@ const Header = () => {
           className="w-6 h-6 cursor-pointer"
           onClick={toggleMenuHandler}
         />
-        <Link to="/">
+        <a href="/">
           <img alt="logo" src="/assets/logo" className="w-24 cursor-pointer" />
-        </Link>
+        </a>
       </div>
       <div className="flex items-center">
         <input
           placeholder="Search"
-          className="border border-gray-300 rounded-l-full px-2 py-1 w-80"
+          className="border border-gray-300 rounded-l-full px-4 py-1 w-80"
         />
         <div className="p-1 px-3 border-2 border-gray-300 bg-gray-300 hover:bg-gray-400 hover:border-gray-400 rounded-r-full cursor-pointer">
           <IoIosSearch className="w-6 h-6 text-white" />

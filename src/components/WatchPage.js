@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
-  //console.log(searchParams.get("v"))
+  console.log(searchParams.get("v"));
 
   const dispatch = useDispatch();
 
@@ -19,8 +19,7 @@ const WatchPage = () => {
         width="1280"
         height="720"
         src={"https://www.youtube.com/embed/" + searchParams.get("v")}
-        title="Hello"
-        frameBorder="0"
+        title="Playing Video"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>
