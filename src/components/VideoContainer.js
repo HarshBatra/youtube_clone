@@ -13,7 +13,7 @@ const VideoContainer = () => {
   const getVideos = async () => {
     const res = await fetch(YOUTUBE_VIDEOS_API);
     const data = await res.json();
-    console.log(data);
+    //console.log(data);
     setVideos(data?.items);
   };
 
