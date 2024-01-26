@@ -5,9 +5,10 @@ import { FaMicrophone } from "react-icons/fa";
 import { RiVideoAddFill } from "react-icons/ri";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { FaUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -20,8 +21,13 @@ const Header = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
+  const searchCache = useSelector((store) => store.search);
+
   useEffect(() => {
-    const timer = setTimeout(() => getSearchResults(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[search]) setSuggestions(searchCache[search]);
+      else getSearchResults();
+    }, 200);
     return () => {
       clearTimeout(timer);
     };
@@ -30,8 +36,14 @@ const Header = () => {
   const getSearchResults = async () => {
     const res = await fetch(YOUTUBE_SEARCH_API + search);
     const data = await res.json();
-    //console.log(data);
+    console.log(data[1]);
     setSuggestions(data[1]);
+    //update cache
+    dispatch(
+      cacheResults({
+        [search]: data[1],
+      })
+    );
   };
 
   return (
