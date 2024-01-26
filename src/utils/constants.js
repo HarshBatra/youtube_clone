@@ -13,3 +13,8 @@ export const VIDEO_COMMENT_API =
 
 export const YOUTUBE_SEARCH_API =
   "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
+
+export const YT_SEARCH_VIDEOS_API =
+  "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" +
+  REACT_APP_GOOGLE_API_KEY +
+  "&q=";

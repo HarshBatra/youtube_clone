@@ -2,13 +2,20 @@ import React, { useEffect, useState } from "react";
 import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 import VideoCard from "./VideoCard";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const VideoContainer = () => {
   const [videos, setVideos] = useState([]);
+  const queriedVideos = useSelector((store) => store.queriedVideos);
 
   useEffect(() => {
     getVideos();
   }, []);
+
+  useEffect(() => {
+    setVideos(queriedVideos);
+    console.log(queriedVideos);
+  }, [queriedVideos]);
 
   const getVideos = async () => {
     const res = await fetch(YOUTUBE_VIDEOS_API);
@@ -19,9 +26,14 @@ const VideoContainer = () => {
 
   return (
     <div className="my-4 grid grid-flow-row grid-cols-3">
-      {videos.length > 0 &&
+      {videos?.length > 0 &&
         videos?.map((video) => (
-          <Link key={video.etag} to={`/watch?v=${video.id}`}>
+          <Link
+            key={video.etag}
+            to={`/watch?v=${
+              typeof video.id === "string" ? video.id : video.id.videoId
+            }`}
+          >
             <VideoCard info={video}></VideoCard>
           </Link>
         ))}

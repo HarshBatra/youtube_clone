@@ -22,18 +22,20 @@ const VideoCard = ({ info }) => {
       <img
         alt="video"
         className="rounded-xl mb-4"
-        src={thumbnails.medium.url}
+        src={thumbnails?.medium?.url}
       />
       <div className="flex">
         <FaUserCircle className="w-8 h-8 text-gray-500 mx-4" />
         <div className="flex flex-col">
           <div className="font-semibold mb-1">
-            {title.length > 50 ? title.slice(0, 50) + "..." : title}
+            {title?.length > 50 ? title.slice(0, 50) + "..." : title}
           </div>
           <div className="text-xs">{channelTitle}</div>
-          <div className="text-xs">
-            {formatNumber(statistics.viewCount)} views
-          </div>
+          {statistics && (
+            <div className="text-xs">
+              {formatNumber(statistics?.viewCount)} views
+            </div>
+          )}
         </div>
       </div>
     </div>
