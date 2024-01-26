@@ -36,7 +36,7 @@ const Header = () => {
   }, [search]);
 
   const getSuggestions = async () => {
-    const res = await fetch(YOUTUBE_SEARCH_API + search);
+    const res = await fetch(`${YOUTUBE_SEARCH_API}?query=${search}`);
     const data = await res.json();
     //console.log(data[1]);
     setSuggestions(data[1]);
@@ -58,7 +58,7 @@ const Header = () => {
     fetchSearchResults(suggestion);
     setSearch(suggestion);
     setShowSuggestions(false);
-    console.log("onSuggestionclick called");
+    //console.log("onSuggestionclick called");
   };
 
   return (
