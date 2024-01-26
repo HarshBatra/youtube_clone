@@ -10,3 +10,6 @@ export const YOUTUBE_VIDEO_INFO_API =
 export const VIDEO_COMMENT_API =
   "https://www.googleapis.com/youtube/v3/commentThreads?textFormat=plainText&part=snippet&maxResults=50&key=" +
   REACT_APP_GOOGLE_API_KEY;
+
+export const YOUTUBE_SEARCH_API =
+  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
