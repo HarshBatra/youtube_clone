@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { closeMenu } from "../utils/appSlice";
 import { useSearchParams } from "react-router-dom";
 import CommentContainer from "../components/CommentContainer.js";
+import LiveChat from "../components/LiveChat.js";
 import { FaUserCircle } from "react-icons/fa";
 import { MdDownload } from "react-icons/md";
 import { IoIosShareAlt } from "react-icons/io";
@@ -50,17 +51,20 @@ const WatchPage = () => {
   }, []);
 
   return (
-    <div className="my-4 px-10 w-screen flex flex-col justify-center">
+    <div className="my-4 px-10 flex flex-col justify-center">
       <div className="m-4 flex justify-center">
         <iframe
-          width="1280"
-          height="720"
+          width="960"
+          height="540"
           src={"https://www.youtube.com/embed/" + searchParams.get("v")}
           title="Playing Video"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
           className="rounded-2xl"
         ></iframe>
+        <div className="m-4 w-1/4">
+          <LiveChat />
+        </div>
       </div>
       <div className="mx-8 my-4 font-bold text-xl">
         {video?.items[0]?.snippet?.title}
