@@ -7,6 +7,10 @@ const port = 3001;
 
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.json({ msg: "Server is running!" });
+});
+
 // This server is created especially for this YOUTUBE_SEARCH_API because it was having a cors issue, and it required to bypass that cors by not fetching it directly on the client side but instead by fetching it in our server, applying cors configs and then fetching the backend server from the client side
 
 app.get("/search", async (req, res) => {
