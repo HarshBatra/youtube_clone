@@ -11,7 +11,7 @@ export const VIDEO_COMMENT_API =
   "https://www.googleapis.com/youtube/v3/commentThreads?textFormat=plainText&part=snippet&maxResults=50&key=" +
   REACT_APP_GOOGLE_API_KEY;
 
-export const YOUTUBE_SEARCH_API = "http://localhost:3001/search";
+export const YOUTUBE_SEARCH_API = "https://youtube-clone-api-two.vercel.app/";
 
 export const YT_SEARCH_VIDEOS_API =
   "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&key=" +
