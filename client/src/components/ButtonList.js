@@ -39,13 +39,13 @@ const ButtonList = () => {
   };
 
   return (
-    <div className="flex items-center my-4 mx-8 gap-4">
+    <div className="flex items-center my-4 md:px-8 px-2 md:gap-4 gap-2 w-full overflow-clip">
       <IoIosArrowDropleft
-        className="w-5 h-5 text-gray-500 cursor-pointer"
+        className="md:w-5 md:flex hidden md:h-5 text-gray-500 cursor-pointer"
         onClick={() => handleScroll("left")}
       />
       <div
-        className="flex flex-nowrap gap-4 overflow-hidden max-w-6xl scroll-smooth"
+        className="flex flex-nowrap md:gap-4 gap-2 overflow-scroll no-scrollbar md:max-w-6xl w-full max-w-screen-sm scroll-smooth"
         ref={ref}
       >
         {btns.map((btn, index) => {
@@ -53,7 +53,7 @@ const ButtonList = () => {
         })}
       </div>
       <IoIosArrowDropright
-        className="w-5 h-5 text-gray-500 cursor-pointer"
+        className="md:w-5 md:h-5 hidden md:flex text-gray-500 cursor-pointer"
         onClick={() => handleScroll("right")}
       />
     </div>

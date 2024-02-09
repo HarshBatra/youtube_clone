@@ -18,7 +18,7 @@ const CommentContainer = ({ vidId }) => {
   };
 
   return (
-    <div className="bg-gray-100 rounded-xl p-4 w-2/3">
+    <div className="bg-gray-100 rounded-xl p-4 md:w-2/3 w-full">
       <div className="font-bold text-lg text-gray-600 my-2">Comments:</div>
       <div className="flex flex-col gap-2">
         {comments?.map((comment, index) => {

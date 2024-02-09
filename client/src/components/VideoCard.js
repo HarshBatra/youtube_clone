@@ -18,10 +18,10 @@ const VideoCard = ({ info }) => {
   }
 
   return (
-    <div className="m-4 p-4 hover:bg-gray-200 rounded-xl cursor-pointer flex flex-col">
+    <div className="p-4 hover:bg-gray-200 rounded-xl cursor-pointer flex flex-col w-screen md:w-full">
       <img
         alt="video"
-        className="rounded-xl mb-4"
+        className="rounded-xl mb-4 "
         src={thumbnails?.medium?.url}
       />
       <div className="flex">

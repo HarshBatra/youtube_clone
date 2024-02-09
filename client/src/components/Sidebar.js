@@ -24,7 +24,7 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return !isMenuOpen ? null : (
-    <div className="p-4 w-1/6 flex flex-col gap-2">
+    <div className="p-4 md:w-1/6 w-fit absolute z-10 bg-white flex flex-col gap-2">
       <Link to="/">
         <div className="rounded-lg p-2 hover:bg-gray-200 flex cursor-pointer">
           <IoMdHome className="w-6 h-6 mr-6" /> Home

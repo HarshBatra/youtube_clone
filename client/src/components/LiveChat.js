@@ -24,8 +24,9 @@ const LiveChat = () => {
     }, 500);
     return () => clearInterval(interval);
   }, []);
+
   return (
-    <div className="bg-gray-200 m-2 p-4 rounded-xl w-auto">
+    <div className="bg-gray-200 p-4 rounded-xl w-full text-xs md:text-base">
       <div className="font-bold flex items-center gap-1 mb-2">
         <HiSignal className="w-5 h-5 text-red-600" />
         Live Chat:

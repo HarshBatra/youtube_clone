@@ -62,7 +62,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex justify-between items-center px-8 border-b-2 py-3">
+    <div className="flex fixed z-20 bg-white drop-shadow-xl md:justify-between items-center md:px-8 px-2 border-b-2 py-3 w-full">
       <div className="flex items-center gap-2">
         <LuMenu
           className="w-6 h-6 cursor-pointer"
@@ -78,23 +78,23 @@ const Header = () => {
             placeholder="Search"
             value={search}
             type="text"
-            className="border border-gray-300 rounded-l-full px-4 py-1 w-80"
+            className="border border-gray-300 rounded-l-full md:px-4 py-1 px-2 text-xs md:text-base md:w-80"
             onChange={(e) => setSearch(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
             onBlur={() => setShowSuggestions(false)}
           />
           <div
             onClick={() => fetchSearchResults(search)}
-            className="p-1 px-3 border-2 border-gray-300 bg-gray-300 hover:bg-gray-400 hover:border-gray-400 rounded-r-full cursor-pointer"
+            className="p-1 md:px-3 md:border-2 border border-gray-300 bg-gray-300 hover:bg-gray-400 hover:border-gray-400 rounded-r-full cursor-pointer"
           >
-            <IoIosSearch className="w-6 h-6 text-white" />
+            <IoIosSearch className="md:w-6 md:h-6 text-white" />
           </div>
-          <div className="p-2 mx-2  border-gray-300 bg-gray-300 hover:bg-gray-400 rounded-full cursor-pointer">
+          <div className="p-2 mx-2 hidden md:flex border-gray-300 bg-gray-300 hover:bg-gray-400 rounded-full cursor-pointer">
             <FaMicrophone className="w-5 h-5 text-white" />
           </div>
         </div>
         {showSuggestions && (
-          <div className="absolute bg-white drop-shadow-lg rounded-lg border-gray-200 border w-80">
+          <div className="absolute z-10 bg-white drop-shadow-lg rounded-lg border-gray-200 border md:w-80">
             {suggestions.map((suggestion, index) => {
               return (
                 <div
@@ -110,7 +110,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="flex gap-6">
+      <div className="gap-6 hidden md:flex">
         <RiVideoAddFill className="w-6 h-6 cursor-pointer" />
         <IoIosNotificationsOutline className="w-6 h-6 cursor-pointer" />
         <FaUserCircle className="w-6 h-6 cursor-pointer" />

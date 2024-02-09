@@ -25,7 +25,7 @@ const VideoContainer = () => {
   };
 
   return (
-    <div className="my-4 grid grid-flow-row grid-cols-3">
+    <div className="my-4 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {videos?.length > 0 &&
         videos?.map((video) => (
           <Link
